@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
                 except Exception as e:
                     self.tableView.setItem(idx,1,QtWidgets.QTableWidgetItem('Failed'))
                     self.tableView.setItem(idx,2,QtWidgets.QTableWidgetItem(startTime))
-                    print('Failed to send message to ' + str(number))
+                    print('Failed to send message to '+ idx+ " : " + str(number))
             print("Process Complete")
             driver.close()
 
