@@ -173,7 +173,7 @@ class Ui_MainWindow(object):
             wbk = xlwt.Workbook()
             sheet = wbk.add_sheet("sheet", cell_overwrite_ok=True)
             self.add2(sheet)
-            wbk.save(filename)
+            wbk.save(filename+'.xls')
         except TypeError as e:
             print(e)
 
@@ -254,6 +254,14 @@ class Ui_MainWindow(object):
                     self.tableView.setItem(idx,2,QtWidgets.QTableWidgetItem(startTime))
                     print('Failed to send message to '+ idx+ " : " + str(number))
             print("Process Complete")
+            import xlwt
+            try:
+                wbk = xlwt.Workbook()
+                sheet = wbk.add_sheet("sheet", cell_overwrite_ok=True)
+                self.add2(sheet)
+                wbk.save('report.xls')
+            except TypeError as e:
+                print(e)
             driver.close()
 
 
